@@ -1,0 +1,10 @@
+.root{
+  height: calc(100vh - 55px);
+  border-radius: 12px;
+}
+
+.div-left{
+  border-bottom-right-radius: 600px;
+  box-shadow: 0px 6px 20px rgba(50, 50, 50, 0.342);
+}
+
