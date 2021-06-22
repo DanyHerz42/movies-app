@@ -28,7 +28,7 @@ const Account = (props) => {
         "x-access-token": props.token
       }
     }
-    const userRequest = await axios.get("http://localhost:4000/users/get-user-data", requestConfig);
+    const userRequest = await axios.get("https://mov-review-api.herokuapp.com/users/get-user-data", requestConfig);
     setUser(userRequest.data)
   }, [])
 

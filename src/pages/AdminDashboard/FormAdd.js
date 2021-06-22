@@ -45,7 +45,7 @@ const FormAdd = (props) => {
             "x-access-token": props.token
           }
         }
-        const addMovie = await axios.post('http://localhost:4000/movies/create-movie', values, requestConfig)
+        const addMovie = await axios.post('https://mov-review-api.herokuapp.com/movies/create-movie', values, requestConfig)
         formik.handleReset()
         setProgress(false);
         setSuccess(true);

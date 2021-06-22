@@ -32,7 +32,7 @@ export default function MovieCard(props) {
           alt="Contemplative Reptile"
           height="140"
           image={dataMovie.imageURL}
-          title="Contemplative Reptile"
+          title="img..src"
         />
         <CardContent>
           <Typography gutterBottom variant="subtitle" component="p" color="primary" style={{fontWeight: "bold"}}>

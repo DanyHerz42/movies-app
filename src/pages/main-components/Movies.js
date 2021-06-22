@@ -15,7 +15,7 @@ const Movies = (props) => {
           "x-access-token": props.token
         }
       }
-      const moviesRequest = await axios.get("http://localhost:4000/movies/list-all-movies", requestConfig);
+      const moviesRequest = await axios.get("https://mov-review-api.herokuapp.com/movies/list-all-movies", requestConfig);
       setMovies(moviesRequest.data.movies);
       setLoader(false);
     } catch (error) {

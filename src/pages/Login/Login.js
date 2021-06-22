@@ -40,10 +40,10 @@ const Login = () => {
     onSubmit: async (values) => {
       try {
         setLoading(true)
-        const login = await axios.post("http://localhost:4000/sign/login", values);
+        const login = await axios.post("https://mov-review-api.herokuapp.com/sign/login", values);
         if (login.status === 200) {
           if (login.data.user.twoSteps) {
-            let verificationCode = await axios.post('http://localhost:4000/sign/verificationTwice', { phone: login.data.user.phone })
+            let verificationCode = await axios.post('https://mov-review-api.herokuapp.com/sign/verificationTwice', { phone: login.data.user.phone })
             history.push({
               pathname: '/sign-verification',
               state: {

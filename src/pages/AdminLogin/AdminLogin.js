@@ -33,11 +33,11 @@ const AdminLogin = () => {
     onSubmit: async (values) => {
       try {
         setLoading(true);
-        const login = await axios.post("http://localhost:4000/sign/auth-admin", values);
+        const login = await axios.post("https://mov-review-api.herokuapp.com/sign/auth-admin", values);
         console.log(login);
 
         if (login.status === 200) {
-          let verificationCode = await axios.post('http://localhost:4000/sign/verificationTwice', { phone: login.data.user.phone })
+          let verificationCode = await axios.post('https://mov-review-api.herokuapp.com/sign/verificationTwice', { phone: login.data.user.phone })
           history.push({
             pathname: "/sign-verification",
             state: {

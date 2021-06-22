@@ -53,11 +53,11 @@ const Signup = (props) => {
 
       try {
         if (captcha.current.getValue() && formik.values) {
-          let verifyUser = await axios.post('http://localhost:4000/sign/verifyIfUserExists', { email: values.email });
+          let verifyUser = await axios.post('https://mov-review-api.herokuapp.com/sign/verifyIfUserExists', { email: values.email });
           if (verifyUser.status === 200) {
             setStateLoading(true);
             if (values.twoSteps) {
-              let verificationCode = await axios.post('http://localhost:4000/sign/verificationTwice', { phone: values.phone })
+              let verificationCode = await axios.post('https://mov-review-api.herokuapp.com/sign/verificationTwice', { phone: values.phone })
               history.push({
                 pathname: '/sign-verification',
                 state: {
@@ -67,7 +67,7 @@ const Signup = (props) => {
                 },
               });
             }else{
-              let addUser = await axios.post('http://localhost:4000/sign/signup', { values });
+              let addUser = await axios.post('https://mov-review-api.herokuapp.com/sign/signup', { values });
               if(addUser.status === 200){
                 history.push({
                   pathname: '/user-home',

@@ -30,12 +30,12 @@ const SignVerification = () => {
         if (typeof (location.state.values.phone) === number) {
           location.state.values.phone = "+" + location.state.values.phone;
         }
-        let senddCode = await axios.post('http://localhost:4000/sign/verifyCode', { phone: location.state.values.phone, code: values.codeYes });
+        let senddCode = await axios.post('https://mov-review-api.herokuapp.com/sign/verifyCode', { phone: location.state.values.phone, code: values.codeYes });
 
         if (senddCode.data.message === 2) {
 
           if (location.state.way === 1) {
-            let getToken = await axios.post('http://localhost:4000/sign/signup', { values: location.state.values })
+            let getToken = await axios.post('https://mov-review-api.herokuapp.com/sign/signup', { values: location.state.values })
             history.push({
               pathname: "/user-home",
               state: {
@@ -87,7 +87,7 @@ const SignVerification = () => {
     setStateWarnigs(0);
     formik.resetForm()
     try {
-      let verificationCode = await axios.post('http://localhost:4000/sign/verificationTwice', { phone: location.state.values.phone })
+      let verificationCode = await axios.post('https://mov-review-api.herokuapp.com/sign/verificationTwice', { phone: location.state.values.phone })
     } catch (error) {
       console.log(error);
     }
