@@ -49,7 +49,9 @@ const Login = () => {
               state: {
                 values: login.data.user,
                 code: verificationCode.data.code,
-                token: login.data.token
+                token: login.data.token,
+                keepLogged: values.keepLogged,
+                way: 2
               },
             });
             setLoading(false);
@@ -66,19 +68,16 @@ const Login = () => {
             });
             setLoading(false)
           }
-          console.log(login.data.user)
           setLoading(false)
         } else if (login.status === 203) {
           setStateWarningIncorrect(true);
           setLoading(false);
           setTimeout(() => setStateWarningIncorrect(false), 5000)
-          console.log(login);
 
         } else if (login.status === 206) {
           setStateWarningPass(true);
           setLoading(false)
           setTimeout(() => setStateWarningPass(false), 5000)
-          console.log(login);
         }
       } catch (error) {
 

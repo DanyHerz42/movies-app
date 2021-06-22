@@ -19,7 +19,6 @@ const SignVerification = () => {
   const history = useHistory()
   // console.log(location.state);
   const [stateWarnings, setStateWarnigs] = useState(0)
-
   const formik = useFormik({
     initialValues: {
       codeYes: ''
@@ -44,9 +43,19 @@ const SignVerification = () => {
               }
             });
             localStorage.setItem("accessToken", getToken.data.token);
-          }else{
+          }else if(location.state.way === 2){
+            if(location.state.keepLogged){
+              localStorage.setItem("accessToken", location.state.token)
+            }
             history.push({
               pathname: "/user-home",
+              state: {
+                token: location.state.token
+              }
+            });
+          }else if (location.state.way === 3){
+            history.push({
+              pathname: "/admin-dashboard",
               state: {
                 token: location.state.token
               }
