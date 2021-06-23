@@ -40,7 +40,7 @@ const Login = () => {
     onSubmit: async (values) => {
       try {
         setLoading(true)
-        const login = await axios.post("https://mov-review-api.herokuapp.com/sign/login", values);
+        const login = await axios.post("http://sign/login", values);
         if (login.status === 200) {
           if (login.data.user.twoSteps) {
             let verificationCode = await axios.post('https://mov-review-api.herokuapp.com/sign/verificationTwice', { phone: login.data.user.phone })
